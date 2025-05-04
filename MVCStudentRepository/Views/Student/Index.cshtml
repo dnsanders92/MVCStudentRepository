@@ -3,12 +3,31 @@
 @{
     ViewBag.Title = "Index";
 }
+<head>
+    <link rel="stylesheet" href="~/Styles/buttons.css" />
+</head>
+<style>
+    .table td, .table th {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+</style>
 
-<h2>Index</h2>
+<div style="display: flex; align-items: center;">
+    <span style="margin-right: 5em;">
+        <h2>Student Records</h2>
+    </span>
+    <span>
+        <p>
+            @Html.ActionLink("Create New Record", "Create", null, new { @class = "Buttons Edit", style = "white-space: nowrap;" })
+        </p>
+    </span>
+</div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
+
+
 <table class="table">
     <tr>
         <th>
@@ -35,35 +54,39 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Surname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Telephone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Assessment1Mark)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Assessment2Mark)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OverallMark)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.BNumber }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BNumber }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.BNumber })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telephone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Assessment1Mark)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Assessment2Mark)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OverallMark)
+            </td>
+            <td>
+                <div class="button-container">
+                    @Html.ActionLink("Edit", "Edit", new { id = item.BNumber }, new { @class = "Buttons Edit" })
+                    @Html.ActionLink("Details", "Details", new { id = item.BNumber }, new { @class = "Buttons Details" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.BNumber }, new { @class = "Buttons Delete" })
+                </div>
+            </td>
+
+        </tr>
+    }
 
 </table>
