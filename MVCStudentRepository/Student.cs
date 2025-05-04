@@ -44,7 +44,9 @@ namespace MVCStudentRepository
 
         [Required]
         [StringLength(255)]
+        [EmailAddress]
         public string Email { get; set; }
+
 
         [Display(Name = "Assessement 1")]
         public short? Assessment1Mark { get; set; }
