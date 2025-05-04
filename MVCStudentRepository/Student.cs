@@ -19,6 +19,7 @@ namespace MVCStudentRepository
 
         [Required]
         [StringLength(100)]
+        [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
         public short Age { get; set; }
@@ -49,7 +50,7 @@ namespace MVCStudentRepository
         public short? Assessment1Mark { get; set; }
         [Display(Name = "Assessement 2")]
         public short? Assessment2Mark { get; set; }
-
+        [Display(Name = "Overall Marks")]
         public short? OverallMark { get; set; }
 
     }
